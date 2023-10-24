@@ -18,6 +18,7 @@
     "@types/md5": "^2.3.4",
     "all": "^0.0.0",
     "aws-sdk": "^2.1472.0",
+    "axios": "^1.5.1",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
     "dotenv": "^16.3.1",

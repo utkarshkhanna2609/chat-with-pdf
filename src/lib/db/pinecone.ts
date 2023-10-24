@@ -1,4 +1,4 @@
-import { PineconeRecord, Pinecone,RecordMetadata } from "@pinecone-database/pinecone";
+import { PineconeRecord, Pinecone, RecordMetadata } from "@pinecone-database/pinecone";
 import { FileKey } from "lucide-react";
 import { downloadFromS3 } from "../s3-server";
 import { PDFLoader } from 'langchain/document_loaders/fs/pdf';
