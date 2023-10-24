@@ -5,24 +5,42 @@ import { auth } from "@clerk/nextjs";
 import { ArrowRight, LogIn } from "lucide-react";
 import Link from "next/link";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { db } from "@/lib/db";
+import { chats } from "@/lib/db/schema";
+import { eq } from "drizzle-orm";
 
 const queryClient = new QueryClient();
 
 export default async function Home() {
   const { userId } = await auth();
   const isAuth = !!userId;
+  let firstChat;
+  if (userId) {
+    firstChat = await db.select().from(chats).where(eq(chats.userId, userId));
+    if (firstChat) {
+      firstChat = firstChat[0];
+    }
+  }
   return (
     <div className="w-screen min-h-screen bg-gradient-to-r from-pink-200 to-yellow-300">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
         <div className="flex flex-col items-center text-center">
           <div className="flex items-center">
             <h1 className="mr-3 text-5xl font-semibold">
-              Chat with any Document
+              Chat with any PDF Document
             </h1>
             <UserButton afterSignOutUrl="/"></UserButton>
           </div>
           <div className="flex mt-7">
-            {isAuth && <Button>Go To Chats</Button>}
+            {isAuth &&(
+              <>
+                <Link href={`/chat/${firstChat?.id}`}>
+                  <Button>
+                    Go to Chats <ArrowRight className="ml-2" />
+                  </Button>
+                </Link>
+                
+              </>)}
           </div>
           <p className="max-w-xl mt-2 text-lg text-slate-600 font-extrabold">
             Join the AI revolution! Connect with millions to navigate through
