@@ -32,9 +32,9 @@ export default async function Home() {
           <div className="w-full mt-4">
             {isAuth ? (
               <h1>
-                <QueryClientProvider client={queryClient}>
+                
                   <FileUpload />
-                </QueryClientProvider>
+                
               </h1>
             ) : (
               <Link href="/sign-in">

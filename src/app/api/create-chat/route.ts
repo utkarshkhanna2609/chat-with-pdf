@@ -5,6 +5,7 @@ import { getS3Url } from "@/lib/s3";
 import { auth } from "@clerk/nextjs";
 import { NextResponse } from "next/server";
 
+
 export async function POST(req: Request, res: Response) {
     const { userId } = await auth();
     if (!userId) {

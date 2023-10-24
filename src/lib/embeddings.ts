@@ -1,7 +1,7 @@
 import {OpenAIApi, Configuration} from 'openai-edge';
 
 const config= new Configuration({
-    apiKey:process.env.OOPENAI_API_KEY,
+    apiKey:process.env.OPENAI_API_KEY,
 
 })
 
@@ -14,7 +14,13 @@ export async function getEmbeddings(text:string) {
             input:text.replace(/\n/g,'')
         });
         const result=await response.json();
-        return result.data[0].embedding as number[];
+        if (result && result.data && result.data[0]) {
+            return result.data[0].embedding as number[];
+        } else {
+            console.error("Unexpected response format:", result);
+            throw new Error("Unexpected response format from OpenAI API");
+        }
+        
     }
     catch(error){
         console.log(error);
