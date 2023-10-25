@@ -16,6 +16,7 @@
     "@radix-ui/react-slot": "^1.0.2",
     "@tanstack/react-query": "^4.33.0",
     "@types/md5": "^2.3.4",
+    "ai": "^2.2.18",
     "all": "^0.0.0",
     "aws-sdk": "^2.1472.0",
     "axios": "^1.5.1",
