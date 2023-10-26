@@ -1,12 +1,10 @@
 'use client'
-
 import { uploadToS3 } from "@/lib/s3";
 import { Inbox, Loader2 } from "lucide-react";
 import React, { useState } from "react";
 import { FileRejection, useDropzone } from "react-dropzone";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { useRouter } from "next/router";
 
 const createChat = async ({ file_key, file_name }: { file_key: string; file_name: string }) => {
   const response = await axios.post("/api/create-chat", {
@@ -17,7 +15,7 @@ const createChat = async ({ file_key, file_name }: { file_key: string; file_name
 };
 
 const FileUpload = () => {
- // const router = useRouter();
+  
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -41,6 +39,7 @@ const FileUpload = () => {
       const response = await createChat(data);
       setChatId(response.chat_id);
       toast.success("Chat created!");
+      
     } catch (error) {
       
       toast.error("Error creating chat");

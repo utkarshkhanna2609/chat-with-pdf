@@ -4,12 +4,12 @@ import { UserButton } from "@clerk/nextjs";
 import { auth } from "@clerk/nextjs";
 import { ArrowRight, LogIn } from "lucide-react";
 import Link from "next/link";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
 import { db } from "@/lib/db";
 import { chats } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 
-const queryClient = new QueryClient();
+
 
 export default async function Home() {
   const { userId } = await auth();
