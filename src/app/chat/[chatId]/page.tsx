@@ -43,7 +43,7 @@ const chatPage=async ({params:{chatId}}:Props)=>{
           </div>
           {/* pdf viewer */}
           <div className="max-h-screen p-4 oveflow-scroll flex-[5]">
-            <PDFViewer pdf_url={currentChat?.pdfUrl||" "}></PDFViewer>
+            <PDFViewer pdf_url={currentChat?.pdfUrl||''}></PDFViewer>
           </div>
           {/* chat component */}
           <div className="flex-[3] border-l-4 border-l-slate-200">

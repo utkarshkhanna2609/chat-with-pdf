@@ -5,8 +5,6 @@ import { useChat } from "ai/react";
 import { Button } from "./ui/button";
 import { Send } from "lucide-react";
 import MessageList from "./MessageList";
-import { useQuery } from "@tanstack/react-query";
-import {Message} from 'ai';
 import axios from "axios";
 
 type Props={chatId:number}
