@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 import {eq} from "drizzle-orm";
 import React from"react";
 import ChatSideBar from "../../../components/ChatSideBar";
-import PDFViewer from "../../../components/PDFviewer";
+import PDFViewer from "../../../components/PDFViewer";
 import ChatComponent from "../../../components/ChatComponent";
 
 
